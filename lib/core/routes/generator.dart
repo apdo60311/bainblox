@@ -1,0 +1,80 @@
+import 'package:BrainBlox/core/routes/routes.dart';
+import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
+import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
+import 'package:BrainBlox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
+import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.dart';
+import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:flutter/material.dart';
+
+class RouteGenerator {
+  Route<dynamic> generate(RouteSettings settings) {
+    switch (settings.name) {
+      case Routes.teacherOrStudent:
+        return MaterialPageRoute(
+            builder: (context) => TeacherOrStudentScreen());
+      case Routes.loginStudent:
+        return MaterialPageRoute(
+            builder: (context) => const LoginStudentScreen());
+      case Routes.loginTeacher:
+        return MaterialPageRoute(
+            builder: (context) => const LoginTeacherScreen());
+      case Routes.register:
+        return MaterialPageRoute(builder: (context) => const RegisterScreen());
+      case Routes.course:
+        return MaterialPageRoute(builder: (context) => CourseScreen());
+      default:
+        return _getErrorRoute();
+    }
+  }
+
+  Route<dynamic> _getErrorRoute() {
+    return MaterialPageRoute(builder: (context) {
+      return Scaffold(
+        backgroundColor: Colors.grey[100],
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.error_outline,
+                  size: 80,
+                  color: Colors.red[700],
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'Oops! Something went wrong',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[800],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'We apologize for the inconvenience',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue[700],
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 15),
+                  ),
+                  child: const Text('Go Back'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
