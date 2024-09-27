@@ -69,7 +69,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      print(_selectedIndex);
       if (index == 0 || index == 1) {
         _scaleAnimationController.reset();
         _scaleAnimationController.forward();

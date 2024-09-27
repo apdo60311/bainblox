@@ -19,26 +19,19 @@ class CourseScreen extends StatefulWidget {
 }
 
 class _CourseScreenState extends State<CourseScreen> {
-  late CourseModel courseModel;
+  // late CourseModel courseModel;
   late CourseCubit _courseCubit;
 
   @override
   void initState() {
+    // courseModel = widget.courseModel!;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.courseModel != null) {
-      courseModel = widget.courseModel!;
-    } else {
-      final Map<String, dynamic> courseData =
-          ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-      courseModel = CourseModel.fromJson(courseData['courseData']);
-    }
-
     _courseCubit = context.read<CourseCubit>();
-    _courseCubit.fetchLectures(courseModel.id);
+    _courseCubit.fetchLectures(widget.courseModel!.id);
 
     return Scaffold(
         body: BlocConsumer<CourseCubit, CourseState>(
@@ -49,7 +42,7 @@ class _CourseScreenState extends State<CourseScreen> {
         } else if (courseState is LecturesLoadingState) {
           return ListView(
             children: [
-              _buildCourseHeader(courseModel, true),
+              _buildCourseHeader(widget.courseModel!, true),
               _buildTeacherInfo(true),
               _buildLectureList([], true),
             ],
@@ -57,7 +50,7 @@ class _CourseScreenState extends State<CourseScreen> {
         } else {
           return ListView(
             children: [
-              _buildCourseHeader(courseModel, false),
+              _buildCourseHeader(widget.courseModel!, false),
               _buildTeacherInfo(false),
               _buildLectureList(
                   (courseState as LecturesLoadedState).lectures, false),

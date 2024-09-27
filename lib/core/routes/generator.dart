@@ -7,6 +7,7 @@ import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.
 import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
 import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
 import 'package:BrainBlox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
+import 'package:BrainBlox/presistance/model/course_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +36,10 @@ class RouteGenerator {
                 create: (context) => LectureCubit(),
               ),
             ],
-            child: CourseScreen(),
+            child: CourseScreen(
+              courseModel: CourseModel.fromJson(
+                  (settings.arguments as Map<String, dynamic>)['courseData']),
+            ),
           ),
         );
       case Routes.home:
