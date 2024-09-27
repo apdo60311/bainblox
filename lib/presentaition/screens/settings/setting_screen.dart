@@ -1,4 +1,4 @@
-import 'package:BrainBlox/modules/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {

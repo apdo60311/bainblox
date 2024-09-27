@@ -1,5 +1,5 @@
-import 'package:BrainBlox/model/course_model.dart';
-import 'package:BrainBlox/modules/course_screen/course_screen.dart';
+import 'package:BrainBlox/presistance/model/course_model.dart';
+import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
 import 'package:flutter/material.dart';
 
 class CourseWidget extends StatelessWidget {

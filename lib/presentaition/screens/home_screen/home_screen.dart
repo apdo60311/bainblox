@@ -1,7 +1,7 @@
-import 'package:BrainBlox/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/bloc/courses_bloc/course_cubit.dart';
-import 'package:BrainBlox/modules/account_screen/account_screen.dart';
-import 'package:BrainBlox/modules/calender_screen/calendar_screen.dart';
+import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
+import 'package:BrainBlox/presentaition/screens/account_screen/account_screen.dart';
+import 'package:BrainBlox/presentaition/screens/calender_screen/calendar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:BrainBlox/core/widgets/animated_grid.dart';

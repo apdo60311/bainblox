@@ -1,4 +1,4 @@
-import 'package:BrainBlox/model/user_model.dart';
+import 'package:BrainBlox/presistance/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';

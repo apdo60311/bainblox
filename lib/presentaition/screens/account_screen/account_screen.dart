@@ -1,5 +1,5 @@
-import 'package:BrainBlox/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/model/user_model.dart';
+import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:BrainBlox/presistance/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';

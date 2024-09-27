@@ -1,9 +1,9 @@
-import 'package:BrainBlox/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/modules/home_screen/home_screen.dart';
+import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/widgets/custom_text_form_field.dart';
+import '../../../core/widgets/custom_text_form_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
