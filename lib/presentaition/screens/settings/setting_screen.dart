@@ -1,10 +1,8 @@
-import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
-  static const String routeName = "seetings";
-
   const SettingsScreen({super.key});
 
   @override
@@ -20,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, TeacherOrStudentScreen.routeName);
+                Navigator.pushNamed(context, Routes.teacherOrStudent);
               },
               child: Row(
                 children: [

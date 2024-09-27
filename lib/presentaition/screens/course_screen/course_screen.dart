@@ -14,8 +14,6 @@ class CourseScreen extends StatefulWidget {
 
   CourseModel? courseModel;
 
-  static const String routeName = "course";
-
   @override
   State<CourseScreen> createState() => _CourseScreenState();
 }

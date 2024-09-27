@@ -1,13 +1,17 @@
 import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
+import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
 import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
 import 'package:BrainBlox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
 import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.dart';
 import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
+import 'package:BrainBlox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RouteGenerator {
-  Route<dynamic> generate(RouteSettings settings) {
+  static Route<dynamic> generate(RouteSettings settings) {
     switch (settings.name) {
       case Routes.teacherOrStudent:
         return MaterialPageRoute(
@@ -21,13 +25,32 @@ class RouteGenerator {
       case Routes.register:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
       case Routes.course:
-        return MaterialPageRoute(builder: (context) => CourseScreen());
+        return MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => CourseCubit(),
+              ),
+              BlocProvider(
+                create: (context) => LectureCubit(),
+              ),
+            ],
+            child: CourseScreen(),
+          ),
+        );
+      case Routes.home:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => CourseCubit()..fetchCourses(),
+                  child: const HomeScreen(),
+                ));
+
       default:
         return _getErrorRoute();
     }
   }
 
-  Route<dynamic> _getErrorRoute() {
+  static Route<dynamic> _getErrorRoute() {
     return MaterialPageRoute(builder: (context) {
       return Scaffold(
         backgroundColor: Colors.grey[100],

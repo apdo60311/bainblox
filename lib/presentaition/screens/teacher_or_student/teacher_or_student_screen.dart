@@ -1,9 +1,8 @@
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
-import 'package:BrainBlox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
 import 'package:flutter/material.dart';
 
 class TeacherOrStudentScreen extends StatelessWidget {
-  static const String routeName = "select_screen";
   bool isTeacher = false;
   bool isStudent = false;
 
@@ -28,8 +27,7 @@ class TeacherOrStudentScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, LoginTeacherScreen.routeName);
+                      Navigator.pushNamed(context, Routes.loginTeacher);
                     },
                     child: const CircleAvatar(
                       radius: 50,
@@ -51,8 +49,7 @@ class TeacherOrStudentScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, LoginStudentScreen.routeName);
+                      Navigator.pushNamed(context, Routes.loginStudent);
                     },
                     child: const CircleAvatar(
                       radius: 50,

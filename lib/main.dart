@@ -1,24 +1,16 @@
 import 'dart:math';
 
+import 'package:BrainBlox/core/routes/generator.dart';
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
-import 'package:BrainBlox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
 import 'package:BrainBlox/core/theme/theme_app.dart';
 import 'package:BrainBlox/firebase_options.dart';
 import 'package:BrainBlox/presistance/model/course_model.dart';
 import 'package:BrainBlox/presistance/model/lecture_model.dart';
-import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
-import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
-import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
-import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.dart';
-import 'package:BrainBlox/presentaition/screens/settings/setting_screen.dart';
-import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,35 +38,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: (state is UserAuthSuccess)
-              ? HomeScreen.routeName
-              : TeacherOrStudentScreen.routeName,
+              ? Routes.home
+              : Routes.teacherOrStudent,
           theme: ApplicationTheme.lightMode,
           themeMode: ThemeMode.light,
-          routes: {
-            TeacherOrStudentScreen.routeName: (context) =>
-                TeacherOrStudentScreen(),
-            LoginStudentScreen.routeName: (context) =>
-                const LoginStudentScreen(),
-            LoginTeacherScreen.routeName: (context) =>
-                const LoginTeacherScreen(),
-            RegisterScreen.routeName: (context) => const RegisterScreen(),
-            HomeScreen.routeName: (context) => BlocProvider(
-                  create: (context) => CourseCubit()..fetchCourses(),
-                  child: const HomeScreen(),
-                ),
-            SettingsScreen.routeName: (context) => const SettingsScreen(),
-            CourseScreen.routeName: (context) => MultiBlocProvider(
-                  providers: [
-                    BlocProvider(
-                      create: (context) => CourseCubit(),
-                    ),
-                    BlocProvider(
-                      create: (context) => LectureCubit(),
-                    ),
-                  ],
-                  child: CourseScreen(),
-                ),
-          },
+          onGenerateRoute: RouteGenerator.generate,
         );
       },
     );

@@ -1,3 +1,4 @@
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,6 @@ import '../../../core/widgets/custom_text_form_field.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
-  static const String routeName = "register";
-
   const RegisterScreen({super.key});
 
   @override
@@ -35,7 +34,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     var theme = Theme.of(context);
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        print(state);
         if (state is UserAuthFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -44,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           );
         } else if (state is UserAuthSuccess) {
-          Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+          Navigator.of(context).pushReplacementNamed(Routes.home);
         }
       },
       builder: (context, state) {

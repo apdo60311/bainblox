@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_text_form_field.dart';
 
 class LoginTeacherScreen extends StatefulWidget {
-  static const String routeName = "login_teacher";
-
   const LoginTeacherScreen({super.key});
 
   @override

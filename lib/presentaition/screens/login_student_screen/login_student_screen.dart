@@ -1,3 +1,4 @@
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:BrainBlox/core/widgets/custom_text_form_field.dart';
 import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
@@ -6,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginStudentScreen extends StatefulWidget {
-  static const String routeName = "login_student";
-
   const LoginStudentScreen({super.key});
 
   @override
@@ -50,7 +49,7 @@ class _LoginStudentScreenState extends State<LoginStudentScreen> {
             );
           } else if (state is UserAuthSuccess) {
             Navigator.of(context).pushNamedAndRemoveUntil(
-              HomeScreen.routeName,
+              Routes.home,
               (Route<dynamic> route) => false,
             );
           }
@@ -75,8 +74,7 @@ class _LoginStudentScreenState extends State<LoginStudentScreen> {
                         ),
                         GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(
-                                  context, RegisterScreen.routeName);
+                              Navigator.pushNamed(context, Routes.register);
                             },
                             child: const Text(
                               "Sign up!",

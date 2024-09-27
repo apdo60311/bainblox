@@ -1,3 +1,4 @@
+import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presistance/model/course_model.dart';
 import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class CourseWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, CourseScreen.routeName,
+          Navigator.pushNamed(context, Routes.course,
               arguments: {"courseData": course.toJson()});
         },
         child: Container(
