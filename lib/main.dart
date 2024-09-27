@@ -8,16 +8,9 @@ import 'package:BrainBlox/core/theme/theme_app.dart';
 import 'package:BrainBlox/firebase_options.dart';
 import 'package:BrainBlox/model/course_model.dart';
 import 'package:BrainBlox/model/lecture_model.dart';
-import 'package:BrainBlox/modules/arabic/arabic_screen.dart';
-import 'package:BrainBlox/modules/chemistry/chemistry_screen.dart';
 import 'package:BrainBlox/modules/course_screen/course_screen.dart';
-import 'package:BrainBlox/modules/english/english_screen.dart';
-import 'package:BrainBlox/modules/geography/geography_screen.dart';
-import 'package:BrainBlox/modules/history/history_screen.dart';
 import 'package:BrainBlox/modules/home_screen/home_screen.dart';
 import 'package:BrainBlox/modules/login_student_screen/login_student_screen.dart';
-import 'package:BrainBlox/modules/math/math_screen.dart';
-import 'package:BrainBlox/modules/physics/physics_screen.dart';
 import 'package:BrainBlox/modules/register_screen/register_screen.dart';
 import 'package:BrainBlox/modules/settings/setting_screen.dart';
 import 'package:BrainBlox/modules/teacher_or_student/teacher_or_student_screen.dart';
@@ -81,13 +74,6 @@ class MyApp extends StatelessWidget {
                   ],
                   child: CourseScreen(),
                 ),
-            MathScreen.routeName: (context) => MathScreen(),
-            ChemistryScreen.routeName: (context) => ChemistryScreen(),
-            HistoryScreen.routeName: (context) => HistoryScreen(),
-            EnglishScreen.routeName: (context) => EnglishScreen(),
-            ArabicScreen.routeName: (context) => ArabicScreen(),
-            PhysicsScreen.routeName: (context) => PhysicsScreen(),
-            GeographyScreen.routeName: (context) => GeographyScreen(),
           },
         );
       },

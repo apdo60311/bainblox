@@ -64,7 +64,6 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future checkCurrentUser() async {
-    print('checkCurrentUser');
     return await _getCurrentUser().then((user) {
       if (user != null) {
         emit(UserAuthSuccess(user));
