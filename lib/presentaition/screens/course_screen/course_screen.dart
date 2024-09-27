@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
 import 'package:BrainBlox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
@@ -10,28 +11,26 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CourseScreen extends StatefulWidget {
-  CourseScreen({super.key, this.courseModel});
+  const CourseScreen({super.key, required this.courseModel});
 
-  CourseModel? courseModel;
+  final CourseModel courseModel;
 
   @override
   State<CourseScreen> createState() => _CourseScreenState();
 }
 
 class _CourseScreenState extends State<CourseScreen> {
-  // late CourseModel courseModel;
   late CourseCubit _courseCubit;
 
   @override
   void initState() {
-    // courseModel = widget.courseModel!;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     _courseCubit = context.read<CourseCubit>();
-    _courseCubit.fetchLectures(widget.courseModel!.id);
+    _courseCubit.fetchLectures(widget.courseModel.id);
 
     return Scaffold(
         body: BlocConsumer<CourseCubit, CourseState>(
@@ -42,7 +41,7 @@ class _CourseScreenState extends State<CourseScreen> {
         } else if (courseState is LecturesLoadingState) {
           return ListView(
             children: [
-              _buildCourseHeader(widget.courseModel!, true),
+              _buildCourseHeader(widget.courseModel, true),
               _buildTeacherInfo(true),
               _buildLectureList([], true),
             ],
@@ -50,7 +49,7 @@ class _CourseScreenState extends State<CourseScreen> {
         } else {
           return ListView(
             children: [
-              _buildCourseHeader(widget.courseModel!, false),
+              _buildCourseHeader(widget.courseModel, false),
               _buildTeacherInfo(false),
               _buildLectureList(
                   (courseState as LecturesLoadedState).lectures, false),
@@ -75,7 +74,7 @@ class _CourseScreenState extends State<CourseScreen> {
               height: 230,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(course.imageUrl),
+                  image: CachedNetworkImageProvider(course.imageUrl),
                   fit: BoxFit.cover,
                 ),
                 boxShadow: [
@@ -150,7 +149,7 @@ class _CourseScreenState extends State<CourseScreen> {
         children: [
           const CircleAvatar(
             radius: 35,
-            backgroundImage: NetworkImage(
+            backgroundImage: CachedNetworkImageProvider(
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSVUrrx8ohez67j1Qq8uKMrhwXwg1CJp1aDw&s'),
           ),
           const SizedBox(width: 16),

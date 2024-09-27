@@ -2,6 +2,7 @@ import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
 import 'package:BrainBlox/presentaition/screens/account_screen/account_screen.dart';
 import 'package:BrainBlox/presentaition/screens/calender_screen/calendar_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:BrainBlox/core/widgets/animated_grid.dart';
@@ -106,8 +107,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: Hero(
                       tag: 'profileImage',
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(authState.user.image ??
-                            'https://via.placeholder.com/150'),
+                        backgroundImage: CachedNetworkImageProvider(
+                            authState.user.image ??
+                                'https://via.placeholder.com/150'),
                         radius: 24,
                       ),
                     ),

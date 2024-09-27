@@ -1,5 +1,6 @@
 import 'package:BrainBlox/core/routes/routes.dart';
 import 'package:BrainBlox/presistance/model/course_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CourseWidget extends StatelessWidget {
@@ -34,12 +35,12 @@ class CourseWidget extends StatelessWidget {
                     color: Colors.grey.shade500,
                     child: Hero(
                       tag: course.title,
-                      child: Image.network(
-                        course.imageUrl,
+                      child: CachedNetworkImage(
+                        imageUrl: course.imageUrl,
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
+                        errorWidget: (context, error, stackTrace) {
                           return Image.network(
                             'https://placehold.co/600x600/000000/FFFFFF.png',
                             width: double.infinity,
