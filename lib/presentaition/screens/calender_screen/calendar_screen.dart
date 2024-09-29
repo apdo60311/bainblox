@@ -177,7 +177,6 @@ class _AnimatedCalendarScreenState extends State<AnimatedCalendarScreen>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // 1. Animated Calendar Widget
         TableCalendar(
           focusedDay: _focusedDate,
           firstDay: DateTime(2020),
@@ -215,9 +214,7 @@ class _AnimatedCalendarScreenState extends State<AnimatedCalendarScreen>
             ),
           ),
         ).animate().fadeIn(duration: 500.ms),
-
         const SizedBox(height: 8.0),
-
         Expanded(
           child: _isLoading ? _buildShimmerLoading() : _buildEventList(),
         ),

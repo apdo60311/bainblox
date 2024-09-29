@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:BrainBlox/presistance/model/course_model.dart';
-import 'package:BrainBlox/presistance/model/lecture_model.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
+import 'package:brain_blox/presistance/model/lecture_model.dart';
 import 'package:flutter/material.dart';
 
 part 'course_state.dart';

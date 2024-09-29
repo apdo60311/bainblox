@@ -1,5 +1,5 @@
-import 'package:BrainBlox/core/routes/routes.dart';
-import 'package:BrainBlox/presistance/model/course_model.dart';
+import 'package:brain_blox/core/routes/routes.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

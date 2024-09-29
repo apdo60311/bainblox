@@ -1,4 +1,4 @@
-import 'package:BrainBlox/core/routes/routes.dart';
+import 'package:brain_blox/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {

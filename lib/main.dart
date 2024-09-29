@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:BrainBlox/core/routes/generator.dart';
-import 'package:BrainBlox/core/routes/routes.dart';
+import 'package:brain_blox/core/routes/generator.dart';
+import 'package:brain_blox/core/routes/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/core/theme/theme_app.dart';
-import 'package:BrainBlox/firebase_options.dart';
-import 'package:BrainBlox/presistance/model/course_model.dart';
-import 'package:BrainBlox/presistance/model/lecture_model.dart';
+import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:brain_blox/core/theme/theme_app.dart';
+import 'package:brain_blox/firebase_options.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
+import 'package:brain_blox/presistance/model/lecture_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

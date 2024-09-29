@@ -1,5 +1,5 @@
-import 'package:BrainBlox/presistance/model/lecture_model.dart';
-import 'package:BrainBlox/presistance/model/user_model.dart';
+import 'package:brain_blox/presistance/model/lecture_model.dart';
+import 'package:brain_blox/presistance/model/user_model.dart';
 
 class CourseModel {
   final String id;

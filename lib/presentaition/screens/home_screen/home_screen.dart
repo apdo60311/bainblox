@@ -1,11 +1,11 @@
-import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
-import 'package:BrainBlox/presentaition/screens/account_screen/account_screen.dart';
-import 'package:BrainBlox/presentaition/screens/calender_screen/calendar_screen.dart';
+import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:brain_blox/presistance/bloc/courses_bloc/course_cubit.dart';
+import 'package:brain_blox/presentaition/screens/account_screen/account_screen.dart';
+import 'package:brain_blox/presentaition/screens/calender_screen/calendar_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:BrainBlox/core/widgets/animated_grid.dart';
+import 'package:brain_blox/core/widgets/animated_grid.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:animations/animations.dart'; // For screen transitions
 
@@ -90,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           return Scaffold(
             appBar: AppBar(
               title: Text(welcomeTitle),
+              automaticallyImplyLeading: false,
               toolbarHeight: 100,
               centerTitle: false,
               actions: [

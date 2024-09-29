@@ -1,13 +1,13 @@
-import 'package:BrainBlox/core/routes/routes.dart';
-import 'package:BrainBlox/presentaition/screens/course_screen/course_screen.dart';
-import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
-import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
-import 'package:BrainBlox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
-import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.dart';
-import 'package:BrainBlox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
-import 'package:BrainBlox/presistance/bloc/courses_bloc/course_cubit.dart';
-import 'package:BrainBlox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
-import 'package:BrainBlox/presistance/model/course_model.dart';
+import 'package:brain_blox/core/routes/routes.dart';
+import 'package:brain_blox/presentaition/screens/course_screen/course_screen.dart';
+import 'package:brain_blox/presentaition/screens/home_screen/home_screen.dart';
+import 'package:brain_blox/presentaition/screens/login_student_screen/login_student_screen.dart';
+import 'package:brain_blox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
+import 'package:brain_blox/presentaition/screens/register_screen/register_screen.dart';
+import 'package:brain_blox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:brain_blox/presistance/bloc/courses_bloc/course_cubit.dart';
+import 'package:brain_blox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -88,14 +88,14 @@ class RouteGenerator {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context).pushReplacementNamed(Routes.home);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue[700],
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 15),
                   ),
-                  child: const Text('Go Back'),
+                  child: const Text('Go Home'),
                 ),
               ],
             ),

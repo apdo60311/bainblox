@@ -1,8 +1,6 @@
-import 'package:BrainBlox/core/routes/routes.dart';
-import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/core/widgets/custom_text_form_field.dart';
-import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
-import 'package:BrainBlox/presentaition/screens/register_screen/register_screen.dart';
+import 'package:brain_blox/core/routes/routes.dart';
+import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
+import 'package:brain_blox/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

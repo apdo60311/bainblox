@@ -1,5 +1,5 @@
-import 'package:BrainBlox/presentaition/widgets/course_widget.dart';
-import 'package:BrainBlox/presistance/model/course_model.dart';
+import 'package:brain_blox/presentaition/widgets/course_widget.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedGridWidget extends StatefulWidget {

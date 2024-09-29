@@ -1,5 +1,5 @@
-import 'package:BrainBlox/core/routes/routes.dart';
-import 'package:BrainBlox/presentaition/screens/login_student_screen/login_student_screen.dart';
+import 'package:brain_blox/core/routes/routes.dart';
+import 'package:brain_blox/presentaition/screens/login_student_screen/login_student_screen.dart';
 import 'package:flutter/material.dart';
 
 class TeacherOrStudentScreen extends StatelessWidget {

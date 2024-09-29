@@ -1,6 +1,5 @@
-import 'package:BrainBlox/core/routes/routes.dart';
-import 'package:BrainBlox/presistance/bloc/auth/auth_cubit.dart';
-import 'package:BrainBlox/presentaition/screens/home_screen/home_screen.dart';
+import 'package:brain_blox/core/routes/routes.dart';
+import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
