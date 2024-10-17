@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:brain_blox/core/routes/generator.dart';
-import 'package:brain_blox/core/routes/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:brain_blox/core/theme/theme_app.dart';
@@ -37,9 +36,7 @@ class MyApp extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: (state is UserAuthSuccess)
-              ? Routes.home
-              : Routes.teacherOrStudent,
+          initialRoute: '/',
           theme: ApplicationTheme.lightMode,
           themeMode: ThemeMode.light,
           onGenerateRoute: RouteGenerator.generate,

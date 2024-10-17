@@ -1,7 +1,12 @@
+import 'package:brain_blox/presentaition/widgets/categories_row.dart';
+import 'package:brain_blox/presentaition/widgets/courses_row.dart';
+import 'package:brain_blox/presentaition/widgets/home_screen_banner.dart';
 import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:brain_blox/presistance/bloc/courses_bloc/course_cubit.dart';
 import 'package:brain_blox/presentaition/screens/account_screen/account_screen.dart';
 import 'package:brain_blox/presentaition/screens/calender_screen/calendar_screen.dart';
+import 'package:brain_blox/presistance/model/category_model.dart';
+import 'package:brain_blox/presistance/model/course_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +33,42 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final List<IconData> _bottomNavIcons = [
     Icons.home,
     Icons.calendar_month_outlined,
+  ];
+
+  final List<CategoryModel> categories = [
+    CategoryModel(
+        title: 'Math',
+        description: 'Mathematics',
+        imageUrl:
+            'https://cdn-icons-png.freepik.com/256/1739/1739515.png?semt=ais_hybrid'),
+    CategoryModel(
+        title: 'Art',
+        description: 'Art',
+        imageUrl: 'https://cdn-icons-png.flaticon.com/512/4893/4893176.png'),
+    CategoryModel(
+        title: 'Science',
+        description: 'Science',
+        imageUrl:
+            'https://cdn-icons-png.freepik.com/256/12236/12236782.png?semt=ais_hybrid'),
+  ];
+
+  final List<CourseModel> courses = [
+    CourseModel(
+        title: 'Python Programming',
+        description: 'python',
+        imageUrl: 'https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg',
+        id: '',
+        instructor: '',
+        lectures: [],
+        students: []),
+    CourseModel(
+        title: 'Angular',
+        description: 'Angular',
+        imageUrl: 'https://img-c.udemycdn.com/course/240x135/756150_c033_4.jpg',
+        id: '',
+        instructor: '',
+        lectures: [],
+        students: []),
   ];
 
   @override
@@ -83,15 +124,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, authState) {
-        String welcomeTitle = 'Hello';
         if (authState is UserAuthSuccess) {
-          welcomeTitle += ' ${authState.user.name}';
-
           return Scaffold(
             appBar: AppBar(
-              title: Text(welcomeTitle),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Hello',
+                    style: TextStyle(fontSize: 15, color: Colors.grey),
+                  ),
+                  Text(
+                    '${authState.user.name} 👋',
+                    style: const TextStyle(fontSize: 24),
+                  )
+                ],
+              ),
               automaticallyImplyLeading: false,
-              toolbarHeight: 100,
+              toolbarHeight: 80,
               centerTitle: false,
               actions: [
                 GestureDetector(
@@ -198,11 +248,41 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         if (coursesState is CoursesLoadingState) {
           return const Center(child: CircularProgressIndicator());
         } else if (coursesState is CoursesLoadedState) {
-          return AnimatedGridWidget(courses: coursesState.courses);
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                const HomeScreenBanner(),
+                sectionLabel('Categories'),
+                CategoriesRow(
+                  categories: categories,
+                ),
+                sectionLabel('Enroll Course'),
+                CoursesRow(courses: courses),
+                // AnimatedGridWidget(courses: coursesState.courses),
+              ],
+            ),
+          );
         } else {
           return const Center(child: Text("Something went wrong"));
         }
       },
+    );
+  }
+
+  Padding sectionLabel(String text) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Row(
+        children: [
+          Text(
+            text,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

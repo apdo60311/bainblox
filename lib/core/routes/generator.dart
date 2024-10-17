@@ -4,7 +4,9 @@ import 'package:brain_blox/presentaition/screens/home_screen/home_screen.dart';
 import 'package:brain_blox/presentaition/screens/login_student_screen/login_student_screen.dart';
 import 'package:brain_blox/presentaition/screens/login_teacher_screen/login_teacher_screen.dart';
 import 'package:brain_blox/presentaition/screens/register_screen/register_screen.dart';
+import 'package:brain_blox/presentaition/screens/splash_screen/splash_screen.dart';
 import 'package:brain_blox/presentaition/screens/teacher_or_student/teacher_or_student_screen.dart';
+import 'package:brain_blox/presistance/bloc/auth/auth_cubit.dart';
 import 'package:brain_blox/presistance/bloc/courses_bloc/course_cubit.dart';
 import 'package:brain_blox/presistance/bloc/lecture_cubit/lecture_cubit.dart';
 import 'package:brain_blox/presistance/model/course_model.dart';
@@ -14,6 +16,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RouteGenerator {
   static Route<dynamic> generate(RouteSettings settings) {
     switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(
+            builder: (context) => SplashScreen(
+                  nextScreen:
+                      (context.read<AuthCubit>().state is UserAuthSuccess)
+                          ? Routes.home
+                          : Routes.teacherOrStudent,
+                ));
       case Routes.teacherOrStudent:
         return MaterialPageRoute(
             builder: (context) => TeacherOrStudentScreen());
